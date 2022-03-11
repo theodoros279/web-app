@@ -18,7 +18,8 @@ class CommentsTableSeeder extends Seeder
         $c = new Comment();
         $c->comment_text = 'comment on post';
         $c->post_id = 1;
-        $c->save();
+        $c->user_id = 1;
+        $c->save(); 
 
         Comment::factory()->count(5)->create();   
     }

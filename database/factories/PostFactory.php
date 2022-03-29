@@ -19,7 +19,7 @@ class PostFactory extends Factory
         return [
             'title' => $this->faker->sentence(5),
             'description' => $this->faker->text(100),
-            'user_id' => $this->faker->numberBetween(1,5),   
+            'user_id' => 1,    
         ];
     }
 }

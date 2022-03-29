@@ -43,8 +43,7 @@ class NewPost extends Notification
     {
         return (new MailMessage)
                     ->line($this->notificationData['body'])
-                    ->action($this->notificationData['text'], $this->notificationData['url'])
-                    ->line($this->notificationData['thankyou']);
+                    ->action($this->notificationData['text'], $this->notificationData['url']); 
     }
 
     /**

@@ -6,22 +6,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
-    <div class="nav-bar">    
-        <a href="{{route('home')}}">Home</a> 
-        <a href="{{route('posts.index')}}">Posts</a> 
+    <ul class="nav-bar">    
+        <li><a href="{{route('home')}}">Home</a></li>
+        <li><a href="{{route('posts.index')}}">Articles</a></li>
         @if (Auth::check()) 
-            <a href="{{route('account.index')}}">Account</a>     
+            <li><a href="{{route('account.index')}}">Account</a></li>    
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
-                <a href="{{route('logout')}}"
+                <li><a href="{{route('logout')}}"
                         onclick="event.preventDefault();
-                        this.closest('form').submit();">Log out</a>  
+                        this.closest('form').submit();">Log out</a></li> 
             </form>
         @else 
-            <a href="{{ route('login') }}">Log in</a>
-            <a href="{{ route('register') }}">Register</a> 
+            <li><a href="{{ route('register') }}">Register</a></li>
+            <li><a href="{{ route('login') }}">Log in</a></li>
         @endif  
-    </div>
+    </ul> 
 
     <h1>@yield('title')</h1> 
 

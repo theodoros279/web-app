@@ -41,8 +41,8 @@ class PostController extends Controller
     public function store(Request $request)
     { 
         $validatedData = $request->validate([
-            'title' => 'required|max:25', 
-            'description' => 'required|max:255', 
+            'title' => 'required|max:30', 
+            'description' => 'required', 
             'image_path' => 'required|mimes:jpeg,png,jpg|max:5048',  
         ]);  
 
@@ -96,15 +96,10 @@ class PostController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:25', 
             'description' => 'required|max:255',
-            'image_path' => 'required|mimes:jpeg,png,jpg|max:5048',  
         ]);  
 
-        $newImageName = time() . '-' . $request->title . '.' . $request->image_path->extension();
-        $request->image_path->move(public_path('images'), $newImageName); 
-
         $post->title = $validatedData['title']; 
-        $post->description = $validatedData['description'];
-        $post->image_path = $newImageName;  
+        $post->description = $validatedData['description']; 
         $post->user_id = auth()->user()->id;     
         $post->update();         
         return redirect()->route('posts.index')->with('message','Post was updated'); 

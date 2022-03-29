@@ -36,9 +36,8 @@ Route::middleware(['auth'])->group(function() {
     Route::post('/posts/{post}/comments', [CommentController::class, 'store'])->name('comments.store'); 
     Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy'); 
     Route::get('/account', [AccountController::class, 'index'])->name('account.index'); 
+    Route::get('/send-notification',[NotificationController::class, 'index'])->name('notify.users'); 
 });  
-
-Route::get('/send-notification',[NotificationController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return redirect('home'); 

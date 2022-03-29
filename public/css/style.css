@@ -1,6 +1,176 @@
 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    overflow-x: hidden;
+    overscroll-behavior-x: none;
+}
+
+.nav-bar {
+    overflow: hidden;
+    background-color: #333;
+}
+
+.nav-bar li {
+    display: inline;
+    float: left;
+}
+
+.nav-bar li:last-child {
+    float: right;
+}
+
+.nav-bar li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav-bar li a:hover {
+    background-color: #111; 
+}
+
+h1 {
+    text-align: center;
+}
+
+
 img { 
-    height: 300px;
-    width: 300px;
+    height: 500px;
+    width: 100vw;
     object-fit: contain;
+}
+
+.bg-image img {
+    height: 500px; 
+    width: 100vw; 
+    object-fit: cover; 
+} 
+
+.about {
+    padding: 20px;
+}
+
+.about:after {
+  content: "";
+  display: table;
+  clear: both;
+} 
+
+.column {
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+
+.column img {
+    height: 70%;
+    width: 70%;  
+}
+
+.btn-primary {
+    margin-top: 50px;
+}
+
+.btn-primary a{
+    color: white;
+    text-decoration: none;
+}
+
+.btn-primary a:hover{
+    color: white;
+}
+
+.posts-container {
+    margin-right: 20px;
+}
+
+ol li {
+    list-style: none;
+    text-decoration: none;
+    background-color: rgb(167, 167, 167);
+    padding: 10px;
+    text-align: center;
+    border-bottom: black solid 1.2px;
+}
+
+ol li a {
+    text-decoration: none;
+    color: white;
+}
+
+ol li a:hover {
+    color: black;
+}
+
+.create-btn {
+    margin: 10px;
+    float: right;
+}
+
+.post-details li{
+    list-style: none;
+}
+
+h5 {
+    padding: 10px;
+}
+
+.post-desc {
+    margin: 40px 0 0px 0;
+}
+
+
+.edit-btn {
+    margin-left: 10px;
+}
+
+.comments-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.comments-section textarea {
+    padding: 5px;
+}
+
+
+.comment-box {
+    width: 700px; 
+    margin: 0 auto;
+    border: 1px solid rgb(0, 52, 148);
+    margin-bottom: 10px;
+    text-align: left;
+    padding: 15px;
+    border-radius: 20px;
+    background-color: aliceblue;
+}
+
+.comment-box:first-child {
+    margin-top: 10px;
+}
+
+.create-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.create-form form {
+    background-color: aliceblue;
+    border: 1px solid rgb(0, 52, 148);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    width: 70%;
+}
+
+.create-form form input {
+    padding: 5px; 
+    width: 100%;
 }

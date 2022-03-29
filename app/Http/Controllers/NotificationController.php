@@ -16,13 +16,13 @@ class NotificationController extends Controller
      */
     public function index()
     {
-        $users = User::all(); 
+        $users = User::where('id', '!=', auth()->user()->isAdmin)->get(); 
+
 
         $notificationData = [
-            'body' => 'New Post!',
-            'text' => 'click the link to see the post',
+            'body' => 'New Article Posted!',  
+            'text' => 'click the link to see the latest article', 
             'url' => url('/posts'), 
-            'thankyou' => '', 
         ];
 
         Notification::send($users, new NewPost($notificationData)); 

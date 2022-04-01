@@ -14,7 +14,7 @@
     </ul>
 
     @if (Auth::user()->id == $post->user_id) 
-    <a href="{{route('posts.edit', ['post'=>$post])}}" class="edit-btn btn btn-info">Edit post</a>
+    <a href="{{route('posts.edit', ['post'=>$post])}}" class="edit-btn btn btn-info">Edit</a>
         <form method="POST" action="{{route('posts.destroy', ['post'=>$post])}}">
             @csrf
             @method('DELETE')

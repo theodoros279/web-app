@@ -55,6 +55,15 @@ class PostController extends Controller
         $a->image_path = $newImageName;    
         $a->user_id = auth()->user()->id;       
         $a->save();  
+        
+        //sends email to users when a blog post is created
+        $users = User::where('id', '!=', auth()->user()->isAdmin)->get(); 
+        $notificationData = [
+            'body' => 'New Article Posted!',  
+            'text' => 'click the link to see the latest article', 
+            'url' => url('/posts'),   
+        ];
+        Notification::send($users, new NewPost($notificationData)); 
          
         return redirect()->route('posts.index')->with('message','Post was created'); 
     }

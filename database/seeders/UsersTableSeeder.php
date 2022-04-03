@@ -15,7 +15,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(1)->create(['name'=>'Test', 'email'=>'test@test.com', 'isAdmin'=>True]); 
-        User::factory()->count(5)->create();  
+        User::factory(1)->create(['name'=>'Jack', 'email'=>'test@test.com', 'isAdmin'=>True]); 
+        User::factory(1)->create(['name'=>'John', 'email'=>'test2@test.com', 'isAdmin'=>True]); 
+        User::factory(1)->create(['name'=>'Maria', 'email'=>'test3@test.com', 'isAdmin'=>False]);  
     }
 }

@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\NewPost;
 use Illuminate\Http\Request;
 use App\Models\Comment;
 use App\Models\Post;
+use App\Models\User; 
 
 class CommentController extends Controller
 {
@@ -45,6 +47,14 @@ class CommentController extends Controller
         $c->post_id = $post->id;
         $c->user_id = auth()->user()->id;  
         $c->save(); 
+
+        $user = User::where('id', '=', $post->user_id)->get();    
+        $notificationData = [
+            'body' => 'Someone commented on your post',  
+            'text' => 'click to see the comment', 
+            'url' => url('/posts'),     
+        ];
+        Notification::send($user, new NewPost($notificationData)); 
 
         return redirect()->route('posts.show', [$post])->with('message','Comment was added'); 
     }

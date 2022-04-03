@@ -21,7 +21,7 @@
             <button type="submit" class="btn btn-danger" style="margin: 10px;">Delete</button> 
         </form>
     @endif
-    
+    <hr>
     <div class="comments-section">
         <h3 class="mt-6">Comments</h3>   
         <form method="POST" action="{{route('comments.store', ['post'=>$post])}}">

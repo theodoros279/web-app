@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 use App\Notifications\NewPost;
 use Illuminate\Support\Facades\Notification;
-
 use Illuminate\Http\Request;
 use App\Models\Post; 
 use App\Models\User; 
@@ -41,7 +40,7 @@ class PostController extends Controller
     public function store(Request $request)
     { 
         $validatedData = $request->validate([
-            'title' => 'required|max:30', 
+            'title' => 'required|max:40', 
             'description' => 'required', 
             'image_path' => 'required|mimes:jpeg,png,jpg|max:5048',  
         ]);  
@@ -60,7 +59,7 @@ class PostController extends Controller
         $users = User::where('id', '!=', auth()->user()->isAdmin)->get(); 
         $notificationData = [
             'body' => 'New Article Posted!',  
-            'text' => 'click the link to see the latest article', 
+            'text' => 'click to see the latest article', 
             'url' => url('/posts'),   
         ];
         Notification::send($users, new NewPost($notificationData)); 
@@ -103,8 +102,8 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $validatedData = $request->validate([
-            'title' => 'required|max:25', 
-            'description' => 'required|max:255',
+            'title' => 'required|max:40', 
+            'description' => 'required',
         ]);  
 
         $post->title = $validatedData['title']; 
